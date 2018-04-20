@@ -1,0 +1,17 @@
+{% extends 'base_index.html' %}
+  {% load staticfiles %}
+
+  {% block body_block %}
+      <div class="jumbotron">
+        <h1 class="m_h">Book Database</h1>
+
+          {% for book in book_list %}
+            <div class="book_nail">
+              <h3 class="title_head"> <a href="{{ book.isbn }}"><h4>{{ book.title }}</h4></a></h3>
+              <p>...</p>
+           </div>
+          {% endfor %}
+
+
+      </div>
+  {% endblock %}

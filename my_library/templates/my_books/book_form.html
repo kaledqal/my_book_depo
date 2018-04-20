@@ -1,0 +1,23 @@
+{% extends "base_index.html" %}
+  {% load staticfiles  %}
+  {% block body_block  %}
+    <div class="jumbotron">
+      {% if not form.instance.pk  %}
+        <h1>Create Book</h1>
+        {% else %}
+        <h1>Modify Book</h1>
+      {% endif %}
+      <p>
+        <form class="form-group"  method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+            <input class="btn btn-primary" type="submit" name="submit"
+            {% if not form.instance.pk  %}
+              value = "Add A Book"
+            {% else %}
+              value= "Modify Book"
+              {% endif %}>
+        </form>
+      </p>
+    </div>
+  {% endblock  %}

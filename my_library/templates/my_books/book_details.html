@@ -1,0 +1,20 @@
+{% extends 'base_index.html' %}
+    {% load staticfiles %}
+    {% block body_block %}
+      <div class="jumbotron">
+        <h1>{{ book_detail.title }}</h1>
+        <p>
+          <table>
+            <tbody>
+              <tr>
+                <th>Author</th><td>{{book_detail.isbn}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            <a class='btn btn-warning' href="{% url 'my_books:book_delete' pk=book_detail.isbn %}"> Delete Book</a>
+            <a class='btn btn-warning' href="{% url 'my_books:book_update' pk=book_detail.isbn %}"> Update Book</a>
+          </p>
+        </p>
+      </div>
+    {% endblock %}
